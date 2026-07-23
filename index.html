@@ -126,6 +126,12 @@
 
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   @media (max-width:860px){ .grid3{grid-template-columns:1fr;} }
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;}
+  @media (max-width:860px){ .grid4{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .grid4{grid-template-columns:1fr;} }
+
+  .cycle-wrap{display:flex;justify-content:center;padding:10px 0 0;}
+  .cycle-svg{width:100%;max-width:420px;height:auto;}
   .card{
     background:var(--surface);border:1px solid var(--hair);border-radius:16px;
     padding:26px;
@@ -177,22 +183,89 @@
     </div>
   </nav>
 
-  <section class="hero">
-    <div>
+  <section class="hero" style="grid-template-columns:1fr;text-align:center;">
+    <div style="margin:0 auto;">
       <div class="eyebrow"><span class="dot"></span> Wealth management, built for Indian investors</div>
       <h1>A real plan for your money — <span class="accent">not just a number.</span></h1>
-      <p class="sub">
+      <p class="sub" style="margin-left:auto;margin-right:auto;">
         Prosperly gives you a clear plan for your equity investments — how they should
         be allocated, whether you're on track for your goals — backed by real holdings data
         and performance vs the benchmark.
       </p>
-      <div class="hero-actions">
+      <div class="hero-actions" style="justify-content:center;">
         <button class="cta-btn">Get started</button>
         <button class="cta-btn ghost">See how it works</button>
       </div>
     </div>
+  </section>
 
-    <div class="device">
+  <section class="section" id="how" style="padding-top:0;">
+    <div class="section-head" style="margin:0 auto 40px;text-align:center;max-width:620px;">
+      <h2>Wealth management is a cycle, not a snapshot.</h2>
+      <p>Prosperly isn't a one-time check-in. It's a continuous loop — with ongoing advisory tying every stage together.</p>
+    </div>
+
+    <div class="cycle-wrap">
+      <svg class="cycle-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#00c805"/>
+          </marker>
+        </defs>
+
+        <path d="M 200,60 A 140,140 0 0,1 340,200" fill="none" stroke="#2a2a2c" stroke-width="2" marker-end="url(#arrow)"/>
+        <path d="M 340,200 A 140,140 0 0,1 200,340" fill="none" stroke="#2a2a2c" stroke-width="2" marker-end="url(#arrow)"/>
+        <path d="M 200,340 A 140,140 0 0,1 60,200"  fill="none" stroke="#2a2a2c" stroke-width="2" marker-end="url(#arrow)"/>
+        <path d="M 60,200 A 140,140 0 0,1 200,60"   fill="none" stroke="#2a2a2c" stroke-width="2" marker-end="url(#arrow)"/>
+
+        <circle cx="200" cy="200" r="72" fill="var(--surface)" stroke="#2a2a2c"/>
+        <text x="200" y="195" text-anchor="middle" fill="#00c805" font-size="14" font-weight="700">Ongoing</text>
+        <text x="200" y="215" text-anchor="middle" fill="#00c805" font-size="14" font-weight="700">advisory</text>
+
+        <circle cx="200" cy="60" r="36" fill="var(--surface-2)" stroke="#00c805" stroke-width="1.5"/>
+        <text x="200" y="65" text-anchor="middle" fill="#fff" font-size="20">🧭</text>
+        <text x="200" y="20" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Plan</text>
+
+        <circle cx="340" cy="200" r="36" fill="var(--surface-2)" stroke="#00c805" stroke-width="1.5"/>
+        <text x="340" y="205" text-anchor="middle" fill="#fff" font-size="20">💰</text>
+        <text x="366" y="204" text-anchor="start" fill="#fff" font-size="15" font-weight="700">Invest</text>
+
+        <circle cx="200" cy="340" r="36" fill="var(--surface-2)" stroke="#00c805" stroke-width="1.5"/>
+        <text x="200" y="345" text-anchor="middle" fill="#fff" font-size="20">📊</text>
+        <text x="200" y="392" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Track</text>
+
+        <circle cx="60" cy="200" r="36" fill="var(--surface-2)" stroke="#00c805" stroke-width="1.5"/>
+        <text x="60" y="205" text-anchor="middle" fill="#fff" font-size="20">🔁</text>
+        <text x="34" y="204" text-anchor="end" fill="#fff" font-size="15" font-weight="700">Adjust</text>
+      </svg>
+    </div>
+
+    <div class="grid4">
+      <div class="card">
+        <div class="icon">🧭</div>
+        <h3>Plan</h3>
+        <p>Set your goals and target allocation across equity, mutual funds, and cash.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Invest</h3>
+        <p>Put money to work through your broker or existing mutual fund holdings.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Track</h3>
+        <p>See real performance against your goals and the Nifty 50, in real time.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔁</div>
+        <h3>Adjust</h3>
+        <p>Rebalance and course-correct as markets move and life changes — then the cycle continues.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="device" style="max-width:420px;margin:0 auto;">
       <div class="device-label">Your allocation vs target</div>
       <div class="device-value" style="font-size:20px;">On track for retirement</div>
       <div class="device-change" style="color:#5a8dff;">68% of goal funded</div>
@@ -267,36 +340,12 @@
     </div>
   </section>
 
-  <section class="section" id="how">
-    <div class="section-head">
-      <h2>How it works</h2>
-      <p>Three steps, and you're tracking real performance.</p>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <div class="num">01</div>
-        <div><h4>Link your accounts</h4><p>Connect your broker or upload a CAS statement from CAMS/KFintech — whatever's easiest to start with.</p></div>
-      </div>
-      <div class="step">
-        <div class="num">02</div>
-        <div><h4>We pull the real numbers</h4><p>Prosperly fetches live stock prices and daily mutual fund NAVs and matches them against your actual holdings.</p></div>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <div><h4>Track performance vs the market</h4><p>See your returns next to the Nifty 50 for any time period, so you always know where you stand.</p></div>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <div><h4>Get a plan, not just a number</h4><p>Prosperly turns those numbers into allocation and goal guidance — so you know what to actually do next.</p></div>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <div>© 2026 Prosperly</div>
     <div>Made for Indian investors</div>
   </footer>
 </div>
+
 
 </body>
 </html>
