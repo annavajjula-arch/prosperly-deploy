@@ -44,7 +44,7 @@
     font-weight:700;font-size:13px;
     padding:10px 20px;border-radius:999px;cursor:pointer;
     transition:transform .15s ease, background .15s ease;
-    border:none;
+    border:none;display:inline-block;
   }
   .pill-btn:hover{transform:translateY(-1px);}
   .pill-btn.outline{
@@ -57,7 +57,7 @@
   .cta-btn{
     background:var(--green);color:#000;font-weight:700;font-size:13px;
     padding:10px 18px;border-radius:999px;border:none;cursor:pointer;
-    transition:transform .15s ease;
+    transition:transform .15s ease;display:inline-block;
   }
   .cta-btn:hover{transform:translateY(-1px);}
   .cta-btn.ghost{
@@ -181,8 +181,8 @@
       <a href="#how">How it works</a>
     </div>
     <div class="nav-actions">
-      <button class="pill-btn outline">Log in</button>
-      <button class="pill-btn solid">Sign up</button>
+      <a href="https://prosperly.themfbox.com" class="pill-btn outline">Log in</a>
+      <a href="https://prosperly.themfbox.com/signup" class="pill-btn solid">Sign up</a>
     </div>
   </nav>
 
@@ -196,8 +196,8 @@
         and performance vs the benchmark.
       </p>
       <div class="hero-actions" style="justify-content:center;">
-        <button class="cta-btn">Get started</button>
-        <button class="cta-btn ghost">See how it works</button>
+        <a href="https://prosperly.themfbox.com/signup" class="cta-btn">Get started</a>
+        <a href="#how" class="cta-btn ghost">See how it works</a>
       </div>
     </div>
   </section>
