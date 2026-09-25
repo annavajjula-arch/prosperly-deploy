@@ -162,6 +162,36 @@
     display:flex;justify-content:space-between;align-items:center;
     font-size:12px;color:#5a5a5e;
   }
+
+  /* PRIVACY / CONTACT */
+  .legal{max-width:720px;}
+  .legal .updated{font-size:13px;color:var(--muted);margin:0 0 32px;}
+  .legal h3{font-size:16px;margin:28px 0 10px;font-weight:700;}
+  .legal p, .legal li{font-size:14px;line-height:1.7;color:#c9c9cd;}
+  .legal ul{padding-left:20px;margin:8px 0;}
+  .legal a.inline{color:var(--green);text-decoration:underline;}
+
+  .contact-cards{display:flex;gap:16px;margin:0 0 36px;flex-wrap:wrap;}
+  .contact-cards .card{flex:1;min-width:200px;padding:20px;}
+  .contact-cards .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+  .contact-cards .value{font-size:15px;font-weight:700;}
+  .contact-cards .value a{color:var(--green);}
+
+  .contact-form{display:flex;flex-direction:column;gap:14px;max-width:480px;}
+  .contact-form label{font-size:13px;color:var(--muted);margin-bottom:6px;display:block;}
+  .contact-form input, .contact-form textarea{
+    width:100%;background:var(--surface);border:1px solid var(--hair);border-radius:10px;
+    padding:12px 14px;color:var(--text);font-size:14px;font-family:inherit;
+  }
+  .contact-form input:focus, .contact-form textarea:focus{outline:none;border-color:var(--green);}
+  .contact-form textarea{min-height:110px;resize:vertical;}
+  .contact-form button{
+    align-self:flex-start;background:var(--green);color:#000;font-weight:700;font-size:14px;
+    padding:12px 26px;border-radius:999px;border:none;cursor:pointer;margin-top:2px;
+    transition:transform .15s ease;
+  }
+  .contact-form button:hover{transform:translateY(-1px);}
+  @media (max-width:860px){ .contact-cards{flex-direction:column;} }
 </style>
 </head>
 <body>
@@ -179,8 +209,8 @@
       <a href="#planning">Planning</a>
       <a href="#tracking">Tracking</a>
       <a href="#how">How it works</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#contact">Contact Us</a>
     </div>
     <div class="nav-actions">
       <a href="https://prosperly.themfbox.com" class="pill-btn outline">Log in</a>
@@ -383,6 +413,85 @@
         <div><div class="l">vs Nifty 50 (1Y)</div><div class="v" style="color:#00c805">+6.2%</div></div>
       </div>
     </div>
+  </section>
+
+  <section class="section" id="privacy">
+    <div class="section-head">
+      <h2>Privacy Policy</h2>
+      <p>Last updated: September 2026</p>
+    </div>
+    <div class="legal">
+      <p>Prosperly Ventures LLC ("Prosperly," "we," "us," or "our") provides wealth management and financial planning tools for investors. This policy explains what information we collect, how we use it, and the choices you have.</p>
+
+      <h3>1. Information we collect</h3>
+      <ul>
+        <li><strong>Account information</strong> — name, email address, and login credentials when you sign up.</li>
+        <li><strong>Financial and holdings data</strong> — portfolio holdings, transactions, NAVs, and related data you connect or upload so we can show performance and planning insights.</li>
+        <li><strong>Usage data</strong> — how you interact with the site and app, device and browser information, and log data.</li>
+        <li><strong>Communications</strong> — messages you send us, such as through the contact form or support email.</li>
+      </ul>
+
+      <h3>2. How we use your information</h3>
+      <ul>
+        <li>To operate and improve Prosperly's tracking, planning, and advisory features.</li>
+        <li>To calculate portfolio performance and compare it against benchmarks.</li>
+        <li>To communicate with you about your account, updates, or support requests.</li>
+        <li>To meet legal, regulatory, and compliance obligations, including those applicable to AMFI-registered mutual fund distributors under SEBI guidelines.</li>
+      </ul>
+
+      <h3>3. How we share information</h3>
+      <p>We do not sell your personal or financial information. We may share data with service providers who help us operate Prosperly (such as hosting and data infrastructure providers), and where required by law or regulation.</p>
+
+      <h3>4. Data security</h3>
+      <p>We use reasonable administrative, technical, and physical safeguards to protect your information. No method of transmission or storage is completely secure, and we encourage you to use a strong, unique password for your account.</p>
+
+      <h3>5. Your choices</h3>
+      <p>You can request access to, correction of, or deletion of your personal information by contacting us at <a class="inline" href="mailto:support@prosperlyventures.com">support@prosperlyventures.com</a>.</p>
+
+      <h3>6. Regulatory disclosure</h3>
+      <p>Prosperly is an AMFI Registered Mutual Fund Distributor (ARN-366669). Information collected in connection with mutual fund distribution activities is handled in accordance with applicable SEBI and AMFI regulations.</p>
+
+      <h3>7. Changes to this policy</h3>
+      <p>We may update this policy from time to time. Material changes will be reflected by an updated "Last updated" date above.</p>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-head">
+      <h2>Contact Us</h2>
+      <p>Questions about your plan, your holdings, or Prosperly in general — we're happy to help.</p>
+    </div>
+
+    <div class="contact-cards">
+      <div class="card">
+        <div class="label">Email</div>
+        <div class="value"><a href="mailto:support@prosperlyventures.com">support@prosperlyventures.com</a></div>
+      </div>
+      <div class="card">
+        <div class="label">Company</div>
+        <div class="value">Prosperly Ventures LLC</div>
+      </div>
+      <div class="card">
+        <div class="label">AMFI Registration</div>
+        <div class="value">ARN-366669</div>
+      </div>
+    </div>
+
+    <form class="contact-form" action="mailto:support@prosperlyventures.com" method="post" enctype="text/plain">
+      <div>
+        <label for="c-name">Name</label>
+        <input type="text" id="c-name" name="name" placeholder="Your name" required />
+      </div>
+      <div>
+        <label for="c-email">Email</label>
+        <input type="email" id="c-email" name="email" placeholder="you@example.com" required />
+      </div>
+      <div>
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" placeholder="How can we help?" required></textarea>
+      </div>
+      <button type="submit">Send message</button>
+    </form>
   </section>
 
   <footer>
