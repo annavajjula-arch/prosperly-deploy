@@ -93,6 +93,35 @@
     footer{flex-direction:column;gap:8px;align-items:flex-start;}
     .cards{flex-direction:column;}
   }
+
+  /* NAV DROPDOWN + HAMBURGER */
+  .nav-links{align-items:center;}
+  .dropdown{position:relative;}
+  .dropdown-toggle{background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:5px;}
+  .dropdown-toggle:hover{color:var(--text);}
+  .dropdown-toggle .caret{width:9px;height:9px;transition:transform .15s ease;}
+  .dropdown.open .caret,.dropdown:hover .caret{transform:rotate(180deg);}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20;}
+  .dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu,.dropdown.open .dropdown-menu{display:block;}
+  .dropdown-panel{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:8px;min-width:170px;box-shadow:0 12px 32px rgba(0,0,0,.6);}
+  .dropdown-panel a{display:block;padding:10px 12px;border-radius:8px;font-size:14px;color:var(--muted);white-space:nowrap;}
+  .dropdown-panel a:hover{background:var(--surface-2);color:var(--text);}
+  .menu-btn{display:none;background:none;border:1px solid var(--hair);border-radius:10px;width:38px;height:38px;cursor:pointer;align-items:center;justify-content:center;color:var(--text);padding:0;}
+  .menu-btn svg{width:18px;height:18px;}
+  .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:8px;z-index:30;box-shadow:0 12px 32px rgba(0,0,0,.6);}
+  .mobile-menu.open{display:block;}
+  .mobile-menu a{display:block;padding:12px 14px;border-radius:8px;font-size:15px;color:var(--text);}
+  .mobile-menu a:hover{background:var(--surface-2);}
+  .mobile-menu .sep{height:1px;background:var(--hair);margin:6px 8px;}
+  .foot-links{display:flex;gap:18px;}
+  .foot-links a:hover{color:var(--text);}
+  @media (max-width:860px){
+    .nav-links{display:none !important;}
+    .menu-btn{display:inline-flex;}
+    .nav-actions .pill-btn{padding:9px 14px;}
+    footer{flex-direction:column;gap:8px;align-items:flex-start;}
+  }
+  nav{padding-left:24px;padding-right:24px;}
 </style>
 </head>
 <body>
@@ -106,17 +135,35 @@
     <span class="logo">Prosperly</span>
   </a>
   <div class="nav-links">
-    <a href="index.html#planning">Planning</a>
-    <a href="index.html#tracking">Tracking</a>
-    <a href="index.html#how">How it works</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="contact.html">Contact Us</a>
-  </div>
-  <div class="nav-actions">
-    <a href="https://prosperly.themfbox.com" class="pill-btn outline">Log in</a>
-    <a href="https://prosperly.themfbox.com/signup" class="pill-btn solid">Sign up</a>
-  </div>
-</nav>
+      <a href="index.html#planning">Planning</a>
+      <a href="index.html#tracking">Tracking</a>
+      <a href="index.html#how">How it works</a>
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">Company <svg class="caret" viewBox="0 0 10 10" fill="none"><path d="M1 3l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="dropdown-menu"><div class="dropdown-panel">
+          <a href="about.html">About Us</a>
+          <a href="testimonials.html">Testimonials</a>
+          <a href="contact.html">Contact Us</a>
+        </div></div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a href="https://prosperly.themfbox.com" class="pill-btn outline">Log in</a>
+      <a href="https://prosperly.themfbox.com/signup" class="pill-btn solid">Sign up</a>
+      <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 18 18" fill="none"><path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html#planning">Planning</a>
+      <a href="index.html#tracking">Tracking</a>
+      <a href="index.html#how">How it works</a>
+      <div class="sep"></div>
+      <a href="about.html">About Us</a>
+      <a href="testimonials.html">Testimonials</a>
+      <a href="contact.html">Contact Us</a>
+      <div class="sep"></div>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </nav>
 
 <div class="wrap content">
   <a href="index.html" class="back-link">&larr; Back to home</a>
@@ -163,8 +210,19 @@
 
 <footer>
   <div>© 2026 Prosperly Ventures LLC · AMFI Registered Mutual Fund Distributor · ARN-366669</div>
+    <div class="foot-links"><a href="privacy.html">Privacy Policy</a><a href="about.html">About Us</a><a href="contact.html">Contact Us</a></div>
   <div>Made for Investors interested in Indian Markets</div>
 </footer>
 
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),menu=document.getElementById('mobile-menu');
+  var dd=document.querySelector('.dropdown'),tg=dd&&dd.querySelector('.dropdown-toggle');
+  if(btn&&menu){btn.addEventListener('click',function(e){e.stopPropagation();var o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o);});
+    menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open');});}
+  if(tg){tg.addEventListener('click',function(e){e.stopPropagation();var o=dd.classList.toggle('open');tg.setAttribute('aria-expanded',o);});}
+  document.addEventListener('click',function(){if(menu)menu.classList.remove('open');if(dd)dd.classList.remove('open');});
+})();
+</script>
 </body>
 </html>
